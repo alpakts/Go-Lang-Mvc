@@ -2,6 +2,7 @@
 # Go Web Application with Gin and HTML Templates
 
 This project demonstrates how to build a web application in Go using the Gin framework and dynamic HTML templates. The application includes a user registration page and a home page.
+with multiple db connection options 
 
 ## Requirements
 
@@ -83,7 +84,8 @@ DB_NAME=mydatabase
 Run the application using the following command:
 
 ```sh
-go run main.go
+go run main.go -env="postgres.env" for postgresql
+go run main.go -env="mysql.env" for mysql
 ```
 
 The application should now be running on `http://localhost:8080`.
