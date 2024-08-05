@@ -40,6 +40,7 @@ func main() {
 	if err != nil {
 		log.Println(err)
 	}
+	r.Static("/dist", "./dist")
 	r.LoadHTMLFiles(files...)
 
 	r.GET("/", func(c *gin.Context) {
@@ -79,7 +80,7 @@ func loadTemplates(root string) (files []string, err error) {
 			if path != root {
 				loadTemplates(path)
 			}
-		} else {
+		} else if filepath.Ext(path) == ".html" {
 			files = append(files, path)
 		}
 		return err
