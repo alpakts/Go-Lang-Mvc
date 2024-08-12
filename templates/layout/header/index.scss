@@ -1,0 +1,87 @@
+$primary-color: #ffffff;
+$secondary-color: #2c3e50;
+$font-color: #000000;
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: $primary-color;
+    color: $font-color;
+    padding: 10px 20px;
+    width: -webkit-fill-available;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: .5px solid rgba(128, 128, 128, 0.176);
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+
+    &.hidden {
+        transform: translateY(-100%); 
+    }
+
+    h1 {
+        margin: 0;
+    }
+
+    nav {
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+
+            li {
+                margin-left: 20px;
+
+                a {
+                    color: $font-color;
+                    text-decoration: none;
+                    font-weight: bold;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+
+    .menu-toggle {
+        display: none;
+        background-color: $secondary-color;
+        border: none;
+        color: $font-color;
+        padding: 10px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: darken($secondary-color, 10%);
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: inline-block;
+    }
+}
+
+main {
+    margin-top: 60px; /* Header yüksekliğine göre ayarlanmış boşluk */
+}

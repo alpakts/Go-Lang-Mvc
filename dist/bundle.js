@@ -1,22 +1,49 @@
-/*
- * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
- * This devtool is neither made for production nor for readable output files.
- * It uses "eval()" calls to create a separate source file in the browser devtools.
- * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
- * or disable the default devtool with "devtool: false".
- * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
- */
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./index.js":
-/*!******************!*\
-  !*** ./index.js ***!
-  \******************/
+/***/ "./layout/header/index.js":
+/*!********************************!*\
+  !*** ./layout/header/index.js ***!
+  \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   IndexTemplate: () => (/* binding */ IndexTemplate)\n/* harmony export */ });\n/* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.scss */ \"./styles.scss\");\n\r\nclass IndexTemplate {\r\n  constructor() {\r\n    this.init();\r\n  }\r\n  init(){\r\n    console.log('IndexTemplate init'); \r\n  }\r\n}\r\n        \n\n//# sourceURL=webpack://templates/./index.js?");
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Header)
+/* harmony export */ });
+class Header {
+  constructor() {
+    this.init();
+  }
+  init() {
+    debugger;
+    document.addEventListener("DOMContentLoaded", function () {
+      const menuToggle = document.querySelector(".menu-toggle");
+      const nav = document.querySelector("nav ul");
+      menuToggle.addEventListener("click", function () {
+        nav.classList.toggle("active");
+      });
+    });
+    this.headerEvent();
+  }
+  headerEvent() {
+    const header = document.querySelector("header");
+    let lastScrollY = window.scrollY;
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > lastScrollY && window.scrollY > 150) {
+        // Aşağı kaydırılıyor ve belli bir seviyenin altında
+        header.classList.add("hidden");
+        header.style.position = "unset";
+      } else if (window.scrollY < lastScrollY) {
+        // Yukarı kaydırılıyor
+        header.classList.remove("hidden");
+        header.style.position = "fixed";
+      }
+      lastScrollY = window.scrollY;
+    });
+  }
+}
 
 /***/ }),
 
@@ -26,7 +53,9 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://templates/./styles.scss?");
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
 
 /***/ })
 
@@ -86,11 +115,30 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /******/ 	})();
 /******/ 	
 /************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./index.js");
-/******/ 	
+var __webpack_exports__ = {};
+/*!******************!*\
+  !*** ./index.js ***!
+  \******************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   IndexTemplate: () => (/* binding */ IndexTemplate)
+/* harmony export */ });
+/* harmony import */ var _layout_header_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./layout/header/index */ "./layout/header/index.js");
+/* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles.scss */ "./styles.scss");
+
+
+class IndexTemplate {
+  constructor() {
+    this.init();
+  }
+  init() {
+    console.log('IndexTemplate init');
+    new _layout_header_index__WEBPACK_IMPORTED_MODULE_0__["default"]();
+  }
+}
+document.addEventListener('DOMContentLoaded', () => {
+  new IndexTemplate();
+});
 /******/ })()
 ;
+//# sourceMappingURL=bundle.js.map

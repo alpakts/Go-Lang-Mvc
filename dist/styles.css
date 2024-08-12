@@ -1,12 +1,81 @@
 /*!******************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./styles.scss ***!
   \******************************************************************************************************/
+@charset "UTF-8";
 body {
-  background-color: #3498db;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 10px 20px;
+  width: -webkit-fill-available;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 0.5px solid rgba(128, 128, 128, 0.176);
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+}
+header.hidden {
+  transform: translateY(-100%);
+}
+header h1 {
+  margin: 0;
+}
+header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+header nav ul li {
+  margin-left: 20px;
+}
+header nav ul li a {
+  color: #000000;
+  text-decoration: none;
+  font-weight: bold;
+}
+header nav ul li a:hover {
+  text-decoration: underline;
+}
+header .menu-toggle {
+  display: none;
+  background-color: #2c3e50;
+  border: none;
+  color: #000000;
+  padding: 10px;
+  cursor: pointer;
+}
+header .menu-toggle:hover {
+  background-color: #1a252f;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+  }
+  nav ul.active {
+    display: flex;
+  }
+  .menu-toggle {
+    display: inline-block;
+  }
+}
+main {
+  margin-top: 60px; /* Header yüksekliğine göre ayarlanmış boşluk */
+}
+
+body {
   color: white;
   font-family: Arial, sans-serif;
 }
 
-h1 {
-  color: red;
-}
+/*# sourceMappingURL=styles.css.map*/
